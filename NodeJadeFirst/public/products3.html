@@ -40,14 +40,17 @@
 
         for (let i = 0; i < 4; i++) {
             str += `<div class="product">
+                <a href="/productdetail.html#${product_arr[i].ProductId}">
                 <div>
                     <img src="images/${product_arr[i].ImageFile}" class="product-img">
-                    <h3 class="product-brand">${product_arr[i].Brand}</h3> 
+                    <h3 class="product-brand">${product_arr[i].BrandName}</h3> 
                     <h4 class="product-name">${product_arr[i].Name}</h4> 
                    <p class="product-price">${product_arr[i].Price}</p>
-                   <a href="/productdetail.html#${product_arr[i].ProductId}">click here</a>
+
                   
                    </div>
+                </a>
+
                    </div>
                    
                    `
