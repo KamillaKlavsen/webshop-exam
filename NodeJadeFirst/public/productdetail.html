@@ -20,13 +20,13 @@
                 .then(json => {
                     // updatelist(json.data);
                 document.getElementById('content').innerHTML = `
-                <div class="product">
+                <div class="product-detail">
                 <div>
                     <img src="images/${json.data.ImageFile}" class="product-img">
                     <h3 class="product-brand">${json.data.Brand}</h3> 
                     <h4 class="product-name">${json.data.Name}</h4> 
                    <p class="product-price">${json.data.Price}</p>
-                   <a href="/productdetail.html#${json.data.ProductId}">click here</a>
+   
                   
                    </div>
                    </div>
@@ -55,33 +55,9 @@
 
 <body>
     <nav class="navbar"></nav>
-    <div id="content"></div>
+    <div id="content" class="wrapper"></div>
 
-    <section class="container single-product">
-        <div class="row">
-            <div class="col-lg-5 col-md-12 col-12">
-                <img class="img-fluid" src="images/img/shop/1.jpg" alt="">
-
-                <div class="small-img-group">
-                    <div class="small-img-col">
-                        <img src="images/img/shop/1.jpg" width="100%" class="small-img" alt="">
-                    </div>
-                    <div class="small-img-col">
-                        <img src="images/img/shop/24.jpg" width="100%" class="small-img" alt="">
-                    </div>
-                    <div class="small-img-col">
-                        <img src="images/img/shop/25.jpg" width="100%" class="small-img" alt="">
-                    </div>
-                    <div class="small-img-col">
-                        <img src="images/img/shop/26.jpg" width="100%" class="small-img" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-5 col-md-12 col-12">
-                <h6>Home / T-shirt</h6>
-                <h3>Men's Fashion</h3>
-            </div>
-        </div>
+  <section>
     </section>
 
     <script src="js/nav.js"></script>
