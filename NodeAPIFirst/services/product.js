@@ -38,11 +38,11 @@ async function getSingle(productId){
 async function create(product){
   const result = await db.query(
     `INSERT INTO product 
-    (PartNumber, Brand, Name, Price, Comment, ProductCategoryId, ImageFile, CreateDate, ModifiedDate, Active) 
+    (PartNumber, BrandId, Name, Price, Description, Comment, ProductCategoryId, ImageFile, CreateDate, ModifiedDate, Active) 
     VALUES 
-    (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, 
+    (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, 
     [
-      product.partnumber, product.brand, product.name, product.price, product.comment,
+      product.partnumber, product.brandid, product.name, product.price, product.description, product.comment,
       product.productcategoryid, product.imagefile, product.createdate,
       product.modifieddate, product.active
     ]
@@ -61,12 +61,12 @@ async function create(product){
 async function update(productId, product){
   const result = await db.query(
     `UPDATE product 
-    SET partnumber=?, brand=?, name=?, price=?, comment=?, productcategoryid=?, 
+    SET partnumber=?, brandid=?, name=?, price=?, description=?, comment=?, productcategoryid=?, 
     imagefile=?, createdate=?, modifieddate=?,
     active=?
     WHERE productId=?`, 
     [
-      product.partnumber, product.brand, product.name, product.price, product.comment,
+      product.partnumber, product.brandid, product.name, product.price, product.description, product.comment,
       product.productcategoryid, product.imagefile, product.createdate,
       product.modifieddate, product.active,
       productId

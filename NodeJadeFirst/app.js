@@ -11,7 +11,7 @@ const pool = mysql.createPool({
   host: 'localhost',
   user: 'kbk',
   password: 'pw123456',
-  database: 'webshop-exam'
+  database: 'new-webshop-exam'
 });
 
 app.use(function(req, res, next) {
