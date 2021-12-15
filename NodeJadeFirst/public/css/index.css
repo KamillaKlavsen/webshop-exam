@@ -1,0 +1,97 @@
+:root{
+    --primary-color: #afa2ff;
+    --seconday-color: #e3d7ff;
+    --tertiary-color: #7a89c2;
+    --text-color: #3A4046;
+    --text-color-white: #FFFFFF;
+
+    --heading: 24px 'Montserrat', sans-serif;
+    --sub-heading: 16px 'Lora', serif;
+    --text: 16px 'Mulish', sans-serif;
+}
+
+header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#img1, #img2{
+    height: 428px;
+}
+
+#img1{
+    width: 1056px;
+    padding-right: 11px;
+}
+
+#img2{
+    width: 582px;
+    padding-left: 11px;
+}
+
+/*MAIN*/
+
+#purple-div-box{
+    display: flex;
+    justify-content: center;
+    margin: 28px 139px 0 139px;
+}
+
+.div-box{
+    background-color: var(--primary-color);
+    width: 981px;
+    height: 100px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 16px 0 20px 0;
+
+}
+
+.div-box-img{
+    display: flex;
+    align-self: center;
+    margin-bottom: 6px;
+}
+
+.div-box>h3{
+    font: var(--sub-heading);
+}
+.div-box>h4{
+    font: var(--text);
+}
+
+/*Foreslåede produkter*/
+
+#h2-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 44px 0 21px 0;
+    font: var(--heading);
+
+}
+.arrow-icon{
+    width: 35px;
+    height: 35px;
+    align-items: center;
+    display: flex;
+}
+
+#arrow-right{
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+
+.lp-textbox{
+    width: 100%;
+    height: 190px;
+    display: flex;
+    flex-direction: column;
+    /* position: absolute; */
+    text-align: center;
+}

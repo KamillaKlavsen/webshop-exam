@@ -1,0 +1,73 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+     --primary-color: #afa2ff;
+     --seconday-color: #e3d7ff;
+     --tertiary-color: #7a89c2;
+     --text-color: #3A4046;
+     --text-color-white: #FFFFFF;
+
+     --heading: 24px 'Montserrat', sans-serif;
+     --sub-heading: 16px 'Lora', serif;
+     --text: 16px 'Mulish', sans-serif;
+}
+
+
+.wrapper{
+     margin: 0 54px 357px 54px;
+}
+
+.logo{
+    height: 27px;
+    width: 47px;
+}
+
+/*NAVIGATION*/
+ul{
+    display: flex;
+}
+
+li{
+    list-style: none;
+    padding: 0 3px;
+}
+
+a:link{
+    text-decoration: none;
+}
+
+.product{
+    margin: 0px 6px;
+}
+
+#product{
+    display: flex;
+    justify-content: center;
+}
+
+.product-img{
+    width: 250px;
+}
+
+.product-brand{
+    font: var(--sub-heading);
+    position: relative;
+}
+.product-name{
+    font: var(--text);
+    position: relative;
+}
+
+.product-price{
+    color: var(--primary-color);
+    font-weight: bold;
+    position: relative;
+}
+
+.product-link{
+    color: var(--text-color);
+}

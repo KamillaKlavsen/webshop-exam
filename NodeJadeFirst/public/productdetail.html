@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="css/productdetail.css">
+    <link rel="stylesheet" href="/css/nav.css">
+
+    <script>
+        let displayProduct = data => {
+
+        }
+
+        let updatepage = id => {
+            fetch(`http://localhost:2000/product/${id}`)
+                .then(response => response.json())
+                .then(json => {
+                    // updatelist(json.data);
+                document.getElementById('content').innerHTML = `
+                <div class="product">
+                <div>
+                    <img src="images/${json.data.ImageFile}" class="product-img">
+                    <h3 class="product-brand">${json.data.Brand}</h3> 
+                    <h4 class="product-name">${json.data.Name}</h4> 
+                   <p class="product-price">${json.data.Price}</p>
+                   <a href="/productdetail.html#${json.data.ProductId}">click here</a>
+                  
+                   </div>
+                   </div>
+                   
+                   
+                `;
+                    console.log(json.data);
+                })
+        }
+
+        document.addEventListener('DOMContentLoaded', e => {
+            let event = new Event('hashchange');
+        window.dispatchEvent(event);
+
+        });
+
+        window.addEventListener('hashchange', e => {
+        let id = window.location.hash.substring(1);
+
+        console.log(id);
+        updatepage(id); //updates the id in the URL
+    });
+    </script>
+
+</head>
+
+<body>
+    <nav class="navbar"></nav>
+    <div id="content"></div>
+
+    <section class="container single-product">
+        <div class="row">
+            <div class="col-lg-5 col-md-12 col-12">
+                <img class="img-fluid" src="images/img/shop/1.jpg" alt="">
+
+                <div class="small-img-group">
+                    <div class="small-img-col">
+                        <img src="images/img/shop/1.jpg" width="100%" class="small-img" alt="">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="images/img/shop/24.jpg" width="100%" class="small-img" alt="">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="images/img/shop/25.jpg" width="100%" class="small-img" alt="">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="images/img/shop/26.jpg" width="100%" class="small-img" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-12 col-12">
+                <h6>Home / T-shirt</h6>
+                <h3>Men's Fashion</h3>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/nav.js"></script>
+</body>
+
+</html>

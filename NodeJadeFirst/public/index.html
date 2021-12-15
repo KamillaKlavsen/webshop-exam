@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" data-auto-replace-svg="nest"></script>
+    <!-- <link rel="stylesheet" href="/css/products.css"> -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200&display=swap');
+    </style>
+    <title>Sketchy Sneaks</title>
+    <script type="text/javascript">
+        var product;
+        var product_arr = [];
+
+        const updatelist = productarr => {
+            let str = '';
+            product_arr[0].Name
+            console.log(product_arr[0].Name);
+
+            for (let i = 0; i < 4; i++) {
+                str += `<div class="product">
+                    <div>
+                    <img src="images/${product_arr[i].ImageFile}" class="product-img">
+                    <h3 class="product-heading">${product_arr[i].Name}</h3> <br> 
+                   <p class="product-price">${product_arr[i].Price}</p> <br>
+                   <a href="/showproduct?id=${product_arr[i].ProductId}">click here</a>
+                  
+                   </div>
+                   </div>`
+            ;
+            console.log(product_arr[i].Name);
+
+            }
+
+            // productarr.forEach(product => {
+            //     //adds a string to the existing string
+            //     //When fetching from the database, the letters are case sensitive
+            //     str += `<div class="product">
+            //         <div>
+            //        ${product.Name} <br> 
+            //        ${product.Price} <br>
+            //        ${product.ImageFile}
+            //        </div>
+            //        </div>`
+            // });
+            product.innerHTML = str;
+
+        };
+
+        const onproductclicked = e => {
+            e.preventDefault();
+            if (e.target.nodeName === 'A') {
+                let id = e.target.getAttribute('href');
+                console.log(id);
+            }
+            //get product info and display info on page
+        }
+        document.addEventListener('DOMContentLoaded', e => {
+
+            product = document.getElementById('product');
+
+            product.addEventListener('click', onproductclicked);
+
+            fetch('http://localhost:2000/product')
+                .then(response => response.json())
+                .then(json => {
+                    product_arr = json.data;
+                    updatelist(json.data);
+                })
+        })
+
+    </script>
+</head>
+
+<body class="wrapper">
+    <nav class="navbar"></nav>
+    <header>
+        <img src="/images/sneakerhero.jpg" alt="" id="img1">
+        <img src="/images/sneakerhero2.jpg" alt="" id="img2">
+    </header>
+
+    <main id="lp-main">
+        <div id="purple-div-box">
+            <div class="div-box">
+                <i class="fas fa-truck logo div-box-img"></i>
+                <h3>Gratis fragt ved køb over 599,-</h3>
+                <h4>Ved køb under er fragt 45,-</h4>
+            </div>
+            <div class="div-box">
+                <i class="fas fa-clock logo div-box-img"></i>
+                <h3>Gratis fragt ved køb over 599,-</h3>
+                <h4>Ved køb under er fragt 45,-</h4>
+            </div>
+            <div class="div-box">
+                <i class="fas fa-user logo div-box-img"></i>
+                <h3>Gratis fragt ved køb over 599,-</h3>
+                <h4>Ved køb under er fragt 45,-</h4>
+            </div>
+            <div class="div-box">
+                <i class="fas fa-shopping-bag logo div-box-img"></i>
+                <h3>Gratis fragt ved køb over 599,-</h3>
+                <h4>Ved køb under er fragt 45,-</h4>
+            </div>
+
+        </div>
+        <section>
+            <div id="h2-box">
+                <i class="fas fa-arrow-alt-circle-left arrow-icon"></i>
+                <h2>Foreslåede styles</h2>
+                <i class="fas fa-arrow-alt-circle-right arrow-icon" id="arrow-right"></i>
+            </div>
+            <div>
+                <div id="product"></div>
+            </div>
+            <div class="lp-textbox">
+                <img src="/images/placeholder.png" alt="mid-pic">
+                <h2>Eksklusive vinter deals</h2>
+                <h3>op til 50% på udvalgte varer</h3>
+                <p>Varm den kolde og triste tid en smule op <br>
+                    med et par nye sneaks fra SneaksPeek</p>
+            </div>
+             
+
+        </section>
+
+
+    </main>
+
+
+
+
+    </form>
+
+    <script src="js/nav.js"></script>
+</body>
+
+</html>
