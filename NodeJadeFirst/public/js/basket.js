@@ -42,7 +42,8 @@ let onordersubmit = (e) => {
     fetch(req)
     .then((response) => response.json())
     .then((json) => {
-        console.log(json.data)
+        // console.log(json.data)
+        console.log(req)
 });
 }
 
