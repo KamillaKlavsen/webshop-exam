@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,14 +10,14 @@
     <link rel="stylesheet" href="/css/nav.css" />
 
     <script>
-      let displayProduct = (data) => {};
+        let displayProduct = (data) => { };
 
-      let updatepage = (id) => {
-        fetch(`http://localhost:2000/product/${id}`)
-          .then((response) => response.json())
-          .then((json) => {
-            // updatelist(json.data);
-            document.getElementById("content").innerHTML = `
+        let updatepage = (id) => {
+            fetch(`http://localhost:2000/product/${id}`)
+                .then((response) => response.json())
+                .then((json) => {
+                    // updatelist(json.data);
+                    document.getElementById("content").innerHTML = `
                 <div class="product-detail">
                 <div>
                     <img src="images/${json.data.ImageFile}" class="product-img">
@@ -25,13 +26,7 @@
                     <p class="product-price">${json.data.Price}</p>
                     <p class="product-desc">${json.data.Description}</p>
 
-                    <form class="add-to-cart" action="basket.html" method="post">
-                        <div>
-                            <label for="qty-1">Quantity</label>
-                            <input type="text" name="qty-1" id="qty-1" class="qty" value="1" />
-                        </div>
-                        <p><input type="submit" value="Føj til kurv" class="btn" /></p>
-                    </form>
+                    
 
    
                   
@@ -40,30 +35,61 @@
                    
                    
                 `;
-            console.log(json.data);
-          });
-      };
+                    console.log(json.data);
+                    document.forms.addtobasket.productId.value = json.data.ProductId;
+                });
+        };
+        let onaddtobasketsubmit = (e) => {
+            e.preventDefault();
+            let item = {
+                productId: parseInt(e.target.productId.value),
+                quantity: parseInt(e.target.qty1.value)
+            };
+            console.log(item);
+            let basketarr = [];
+            if (localStorage.basket) {
+                basketarr = JSON.parse(localStorage.basket);
+                //finde et objekt, der har et productId i sig
+                if (!basketarr.find(product => product.productId == item.productId)) {
+                    basketarr.push(item);
+                }
+            } else {
+                basketarr.push(item);
+            }
+            localStorage.basket = JSON.stringify(basketarr);
+        }
 
-      document.addEventListener("DOMContentLoaded", (e) => {
-        let event = new Event("hashchange");
-        window.dispatchEvent(event);
-      });
+        document.addEventListener("DOMContentLoaded", (e) => {
+            document.forms.addtobasket.addEventListener('submit', onaddtobasketsubmit);
 
-      window.addEventListener("hashchange", (e) => {
-        let id = window.location.hash.substring(1);
+            let event = new Event("hashchange");
+            window.dispatchEvent(event);
+        });
 
-        console.log(id);
-        updatepage(id); //updates the id in the URL
-      });
+        window.addEventListener("hashchange", (e) => {
+            let id = window.location.hash.substring(1);
+
+            console.log(id);
+            updatepage(id); //updates the id in the URL
+        });
     </script>
-  </head>
+</head>
 
-  <body>
+<body>
     <nav class="navbar"></nav>
     <div id="content" class="wrapper"></div>
+    <form name="addtobasket" class="add-to-basket" action="basket.html" method="post">
+        <div>
+            <label for="qty1">Quantity</label>
+            <input type="text" name="qty1" id="qty1" class="qty" value="1" />
+            <input type="hidden" name="productId" />
+        </div>
+        <p><input type="submit" value="Føj til kurv" class="btn" /></p>
+    </form>
 
     <section></section>
 
     <script src="js/nav.js"></script>
-  </body>
+</body>
+
 </html>

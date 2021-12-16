@@ -10,6 +10,7 @@ const productcategoriesRouter = require('./routes/productcategory');
 const customersRouter = require('./routes/customer');
 const imagesRouter = require('./routes/image');
 const brandRouter = require('./routes/brand');
+const orderRouter = require('./routes/order');
 
 
 app.use(cors({
@@ -33,6 +34,7 @@ app.use('/productcategory', productcategoriesRouter);
 app.use('/customer', customersRouter);
 app.use('/image', imagesRouter);
 app.use('/brand', brandRouter);
+app.use('/order', orderRouter);
 
 app.use(express.static('public'));
 
