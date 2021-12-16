@@ -1,31 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Product Details</title>
-    <link rel="stylesheet" href="css/productdetail.css">
-    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="css/productdetail.css" />
+    <link rel="stylesheet" href="/css/nav.css" />
 
     <script>
-        let displayProduct = data => {
+      let displayProduct = (data) => {};
 
-        }
-
-        let updatepage = id => {
-            fetch(`http://localhost:2000/product/${id}`)
-                .then(response => response.json())
-                .then(json => {
-                    // updatelist(json.data);
-                document.getElementById('content').innerHTML = `
+      let updatepage = (id) => {
+        fetch(`http://localhost:2000/product/${id}`)
+          .then((response) => response.json())
+          .then((json) => {
+            // updatelist(json.data);
+            document.getElementById("content").innerHTML = `
                 <div class="product-detail">
                 <div>
                     <img src="images/${json.data.ImageFile}" class="product-img">
                     <h3 class="product-brand">${json.data.Brand}</h3> 
                     <h4 class="product-name">${json.data.Name}</h4> 
-                   <p class="product-price">${json.data.Price}</p>
+                    <p class="product-price">${json.data.Price}</p>
+                    <p class="product-desc">${json.data.Description}</p>
+
+                    <form class="add-to-cart" action="basket.html" method="post">
+                        <div>
+                            <label for="qty-1">Quantity</label>
+                            <input type="text" name="qty-1" id="qty-1" class="qty" value="1" />
+                        </div>
+                        <p><input type="submit" value="Føj til kurv" class="btn" /></p>
+                    </form>
+
    
                   
                    </div>
@@ -33,34 +40,30 @@
                    
                    
                 `;
-                    console.log(json.data);
-                })
-        }
+            console.log(json.data);
+          });
+      };
 
-        document.addEventListener('DOMContentLoaded', e => {
-            let event = new Event('hashchange');
+      document.addEventListener("DOMContentLoaded", (e) => {
+        let event = new Event("hashchange");
         window.dispatchEvent(event);
+      });
 
-        });
-
-        window.addEventListener('hashchange', e => {
+      window.addEventListener("hashchange", (e) => {
         let id = window.location.hash.substring(1);
 
         console.log(id);
         updatepage(id); //updates the id in the URL
-    });
+      });
     </script>
+  </head>
 
-</head>
-
-<body>
+  <body>
     <nav class="navbar"></nav>
     <div id="content" class="wrapper"></div>
 
-  <section>
-    </section>
+    <section></section>
 
     <script src="js/nav.js"></script>
-</body>
-
+  </body>
 </html>
