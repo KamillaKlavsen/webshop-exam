@@ -1,10 +1,11 @@
-let insertProduct = (product, quantity) => {
+let insertProduct = (product, quantity, size) => {
   document.querySelector("table.shopping-cart > tbody").innerHTML += `
   <tr>
   <td>${product.Name}</td>
   <td>${product.Price}</td>
   <td><img src="/images/${product.ImageFile}" class="product-img"></td>
   <td>${quantity}</td>
+  <td>${size}</td>
   <td>I alt: ${quantity*product.Price}</td>`;
 };
 {
@@ -26,6 +27,8 @@ let getProducts = () => {
         .then((json) => {
           console.log(json.data);
           insertProduct(json.data, item.quantity);
+          insertProduct(json.data, item.size);
+
         });
     });
   }

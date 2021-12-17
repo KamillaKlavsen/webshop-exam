@@ -7,19 +7,19 @@ let updatepage = (id) => {
             // updatelist(json.data);
             document.getElementById("content").innerHTML = `
         <div class="product-detail">
-        <div>
-            <img src="images/${json.data.ImageFile}" class="product-img">
-            <h3 class="product-brand">${json.data.Brand}</h3> 
-            <h4 class="product-name">${json.data.Name}</h4> 
-            <p class="product-price">${json.data.Price}</p>
-            <p class="product-desc">${json.data.Description}</p>
+            <div>
+                <img src="images/${json.data.ImageFile}" class="productdetail-img">
+            </div>
 
-            
+            <div class="desc-box">
+                <h3 class="product-brand">${json.data.BrandName}</h3> 
+                <h4 class="product-name">${json.data.Name}</h4> <br>
+                <p class="product-price">${json.data.Price}</p> <br>
+                <p class="product-desc">${json.data.Description}</p>
+            </div>
 
-
-          
-           </div>
-           </div>
+           
+        </div>
            
            
         `;
@@ -31,7 +31,9 @@ let onaddtobasketsubmit = (e) => {
     e.preventDefault();
     let item = {
         productId: parseInt(e.target.productId.value),
-        quantity: parseInt(e.target.qty1.value)
+        quantity: parseInt(e.target.qty1.value),
+        size: parseInt(e.target.size.value),
+        
     };
     console.log(item);
     let basketarr = [];

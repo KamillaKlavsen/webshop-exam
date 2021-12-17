@@ -13,16 +13,29 @@
 <body>
     <nav class="navbar"></nav>
     <div id="content" class="wrapper"></div>
-    <form name="addtobasket" class="add-to-basket" action="basket.html" method="post">
-        <div>
-            <label for="qty1">Quantity</label>
-            <input type="text" name="qty1" id="qty1" class="qty" value="1" />
-            <input type="hidden" name="productId" />
-        </div>
-        <p><input type="submit" value="Føj til kurv" class="btn" /></p>
-    </form>
-
-    <section></section>
+    <div class="pd-form-box">
+        <form name="addtobasket" class="add-to-basket" action="basket.html" method="post">
+            <div class="quantity">
+                <label for="qty1">Quantity</label>
+                <input type="text" name="qty1" id="qty1" class="qty" value="1" />
+                <input type="hidden" name="productId" />
+            </div>
+            <div class="size">
+                <label for="size">Vælg størrelse:</label>
+                <input list="shoe-size" id="size" name="size" />
+    
+                <datalist id="shoe-size">
+                    <option value=36>
+                    <option value=37>
+                    <option value=37.5>
+                    <option value=38>
+                    <option value=39>
+                    <option value=40>
+                </datalist>
+            </div>
+            <p><input type="submit" value="Føj til kurv" class="btn" /></p>
+        </form>
+    </div>
 
     <script src="js/nav.js"></script>
     <script src="js/productdetail.js"></script>
