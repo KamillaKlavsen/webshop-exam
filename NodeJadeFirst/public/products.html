@@ -18,63 +18,58 @@
     </style>
     <title>Sketchy Sneaks</title>
     <script type="text/javascript">
+        var content;
         var product;
+        var productinfo;
         var product_arr = [];
+
+        //fetch request a new page (kinda like routing)
+        const updatepage = page => {
+            fetch(`http://localhost:2000/product?page=${page}`)
+                .then(response => response.json())
+                .then(json => {
+                    product_arr = json.data;
+                    updatelist(json.data);
+                })
+        };
 
         const updatelist = productarr => {
             let str = '';
-            product_arr[0].Name
+            // product_arr[0].Name
             console.log(product_arr[0].Name);
 
             for (let i = 0; i < 4; i++) {
                 str += `<div class="product">
-                    <div>
-                    <a href="/showproduct?id=${product_arr[i].ProductId}" class="product-link">
+                <a href="/productdetail.html#${product_arr[i].ProductId}">
+                <div>
                     <img src="images/${product_arr[i].ImageFile}" class="product-img">
-                    <h3 class="product-brand">${product_arr[i].Brand}</h3> 
+                    <h3 class="product-brand">${product_arr[i].BrandName}</h3> 
                     <h4 class="product-name">${product_arr[i].Name}</h4> 
                    <p class="product-price">${product_arr[i].Price}</p>
-                   </a>
-                  
-                   </div>
 
-                   <div>
-                    <img src="images/${product_arr[i].ImageFile}" class="product-img">
-                    <h3 class="product-brand">${product_arr[i].Brand}</h3> 
-                    <h4 class="product-name">${product_arr[i].Name}</h4> 
-                   <p class="product-price">${product_arr[i].Price}</p>
-                   <a href="/showproduct?id=${product_arr[i].ProductId}">click here</a>
                   
                    </div>
+                </a>
 
-                   <div>
-                    <img src="images/${product_arr[i].ImageFile}" class="product-img">
-                    <h3 class="product-brand">${product_arr[i].Brand}</h3> 
-                    <h4 class="product-name">${product_arr[i].Name}</h4> 
-                   <p class="product-price">${product_arr[i].Price}</p>
-                   <a href="/showproduct?id=${product_arr[i].ProductId}">click here</a>
-                  
-                   </div>
                    </div>
                    
                    `
-            ;
-            console.log(product_arr[i].Name);
-
+                    ;
+                console.log(product_arr[i].Name);
             }
 
-            // productarr.forEach(product => {
-            //     //adds a string to the existing string
-            //     //When fetching from the database, the letters are case sensitive
-            //     str += `<div class="product">
-            //         <div>
-            //        ${product.Name} <br> 
-            //        ${product.Price} <br>
-            //        ${product.ImageFile}
-            //        </div>
-            //        </div>`
-            // });
             product.innerHTML = str;
+
+        };
+
+        const getproduct = id => {
+            let product = `product${id}`;
+            fetch(product)
+                .then(response => response.json())
+                .then(json => {
+                    productinfo.innerHTML = `name:${product.name} is ${product.price}`
+
+                })
 
         };
 
@@ -85,47 +80,44 @@
                 console.log(id);
             }
         }
-        //get product info and display info on page
-        document.addEventListener('DOMContentLoaded', e => {
 
+        document.addEventListener('DOMContentLoaded', e => {
+            content = document.getElementById('content');
             product = document.getElementById('product');
 
-            product.addEventListener('click', onproductclicked);
+            console.log(content);
 
-            fetch('http://localhost:2000/product')
-                .then(response => response.json())
-                .then(json => {
-                    product_arr = json.data;
-                    updatelist(json.data);
-                })
-        })
+            // product.addEventListener('click', onproductclicked);
 
+            let event = new Event('hashchange');
+            window.dispatchEvent(event);
+
+            // fetch('http://localhost:2000/product')
+            //         .then(response => response.json())
+            //         .then(json => {
+            //             product_arr = json.data;
+            //             updatelist(json.data);
+            //         })
+        });
+
+        window.addEventListener('hashchange', e => {
+            let page = window.location.hash.substring(1);
+            page = (page.length > 0) ? page : 1; //
+            updatepage(page); //updates the id in the URL
+        }); //det kan udkommenteres (for at få til at du igen)
     </script>
+
 </head>
 
-<body class="wrapper">
+<body>
     <nav class="navbar"></nav>
-    <!-- <header>
-        <img src="/images/sneakerhero.jpg" alt="" id="img1">
-        <img src="/images/sneakerhero2.jpg" alt="" id="img2">
-    </header> -->
-
-    <main id="products-main">
-        
-        <section>
-                <div id="product"></div>
-                <div id="product"></div>
-       
-      
-             
-
-        </section>
-
-
-    </main>
+    <section class="wrapper">
+        <div id="content"></div>
+        <div id="product">
+        </div>
+    </section>
 
     <script src="js/nav.js"></script>
-
 </body>
 
 </html>

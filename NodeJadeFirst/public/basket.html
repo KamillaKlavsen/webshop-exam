@@ -10,23 +10,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kurv</title>
     <link rel="stylesheet" href="css/basket.css">
-    <link rel="stylesheet" href="css/products.css">
-    <script src="js/basket.js"></script>
+    <link rel="stylesheet" href="css/nav.css">
+    <!-- <link rel="stylesheet" href="css/products.css"> -->
+ 
 </head>
 
 <body>
-
+    <nav class="navbar"></nav>
+    <div class="title">
+        Shopping Bag
+    </div>
     <form id="shopping-cart" action="basket.html" method="post">
         <table class="shopping-cart">
-            <thead>
+            <!-- <thead>
                 <tr>
+                    <div class="item">
+                        <div class="buttons">
+                            <span class="delete-btn"></span>
+                            <span class="like-btn"></span>
+                        </div>
+                    </div>
                     <th scope="col">Item</th>
                     <th scope="col">Qty</th>
                     <th scope="col">Price</th>
                     <th scope="col">Image</th>
-                    <th scope="col">I alt</th>
+                    <th scope="col">I alt</th> -->
                 </tr>
-            </thead>
+            </thead> -->
             <tbody></tbody>
         </table>
         <p id="sub-total">
@@ -54,7 +64,8 @@
         <button>Send ordre</button>
     </form>
 
-
+    <script src="js/basket.js"></script>
+    <script src="js/nav.js"></script>
 </body>
 
 </html>

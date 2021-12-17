@@ -25,36 +25,6 @@ app.use(function(req, res, next) {
 // // get an image (static file) from the public folder - e.g.: /images/cat.jpg
 app.use(express.static('public'));
 
-// app.get("/",(req,res) => {
-//     pool.getConnection((err, connection) => {
-//         if(err) throw err;
-//         console.log('connected as id ' + connection.threadId);
-//         connection.query('SELECT * from language', (err, rows) => {
-//             connection.release(); // return the connection to pool
-//             if(err) 
-//                 throw err;
-//                 console.log('The data from book table are: \n', rows);
-//             // else
-//                 res.render('language', { languageList: rows, author: 'Kamilla'}); //JSON request
-//         });
-//     });
-// });
-
-// app.get("/customer",(req,res) => {
-//     pool.getConnection((err, connection) => {
-//         if(err) throw err;
-//         console.log('connected as id ' + connection.threadId);
-//         connection.query('SELECT * from customer', (err, rows) => {
-//             connection.release(); // return the connection to pool
-//             if(err) 
-//                 throw err;
-//                 console.log('The data from customer table are: \n', rows);
-//             // else
-//                 res.render('customer', { customerList: rows}); //JSON request
-//         });
-//     });
-// });
-
 app.listen(3000, () => {
     console.log('Server is running at port http://localhost:3000/');
 });
