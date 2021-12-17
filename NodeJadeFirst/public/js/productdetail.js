@@ -32,7 +32,7 @@ let onaddtobasketsubmit = (e) => {
     let item = {
         productId: parseInt(e.target.productId.value),
         quantity: parseInt(e.target.qty1.value),
-        size: parseInt(e.target.size.value),
+       
         
     };
     console.log(item);
