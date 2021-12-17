@@ -1,6 +1,44 @@
 @import 'global.css';
 
-.product-detail{
-    display: grid;
-    
+:root{
+     --primary-color: #afa2ff;
+     --seconday-color: #e3d7ff;
+     --tertiary-color: #7a89c2;
+     --text-color: #3A4046;
+     --text-color-white: #FFFFFF;
+
+     --heading: 24px 'Montserrat', sans-serif;
+     --sub-heading: 16px 'Lora', serif;
+     --text: 16px 'Mulish', sans-serif;
 }
+
+
+
+.product-detail{
+display: flex;
+margin-top: 60px;
+}
+
+.productdetail-img{
+    height: 500px;
+
+}
+
+.desc-box{
+    margin: 30px;
+}
+
+.product-brand{
+    color: var(--text-color);
+    font-size: 47px;
+}
+.product-name{
+    color: var(--text-color);
+    font-size: 42px;
+}
+
+.product-price{
+   font-size: 47px; 
+}
+
+/*quantity and size*/
