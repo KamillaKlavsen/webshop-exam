@@ -1,3 +1,4 @@
+// i parametrene skrives de ting, som skal med fra productdetail og i kurven, som her produktet og quantity
 let insertProduct = (product, quantity) => {
   document.querySelector("table.shopping-cart > tbody").innerHTML += `
   <tr>
@@ -18,6 +19,7 @@ let insertProduct = (product, quantity) => {
 <td>${product.Price}</td>
 <td><img src="/images/${product.ImageFile}" class="product-img"></td> */}
 
+//henter produkterne ind
 let getProducts = () => {
   if (localStorage.basket) {
     let basketarr = JSON.parse(localStorage.basket);
@@ -26,13 +28,15 @@ let getProducts = () => {
         .then((response) => response.json())
         .then((json) => {
           console.log(json.data);
+          //definerer quantity. Dette kan gøres med andre ting f.eks. som størrelse (hvis man sælger tøj/sko)
           insertProduct(json.data, item.quantity);
-         
-
         });
     });
   }
 };
+
+//Nedenstående definerer forskellige værdier i 'order'/'invoice' table i databasen. 
+
 let onordersubmit = (e) => {
   e.preventDefault();
   let order = {
@@ -40,6 +44,7 @@ let onordersubmit = (e) => {
     CustomerEmail: e.target.CustomerEmail.value,
     Basketarr: localStorage.basket,
   };
+  //request data 
   let reqData = {
     method: "post",
     headers: {'Content-type': 'application/json'},

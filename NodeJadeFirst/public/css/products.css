@@ -1,2 +1,17 @@
 @import 'global.css';
 
+.product{
+    display: flex;
+    justify-content: center;
+}
+
+#product{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 10px 3px;
+}
+/* div.product-desc{
+    width: 250px;
+    margin: 0;
+} */

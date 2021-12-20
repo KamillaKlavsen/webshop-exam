@@ -40,9 +40,11 @@ a:link{
     text-decoration: none;
 }
 
-.product{
+/*product global*/
+
+/* .product{
     margin: 0px 6px;
-}
+} */
 
 #product{
     display: flex;
@@ -55,17 +57,17 @@ a:link{
 
 .product-brand{
     font: var(--sub-heading);
-    position: relative;
+
 }
 .product-name{
     font: var(--text);
-    position: relative;
+
 }
 
 .product-price{
     color: var(--primary-color);
     font-weight: bold;
-    position: relative;
+ 
 }
 
 .product-link{

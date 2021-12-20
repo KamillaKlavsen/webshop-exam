@@ -11,14 +11,10 @@ async function create(order){
   // };
   
   const result = await db.query(
-    // 'INSERT INTO order (CustomerName, CustomerEmail, Basketarr) VALUES (?, ?, ?)',
-    // [
-    //  'test', 'test', 'test'
-    // ]
-    'INSERT INTO `order`(`CustomerName`, `CustomerEmail`, `Basketarr`) VALUES (?, ?, ?)', [order.CustomerName, order.CustomerEmail, order.Basketarr]
+      'INSERT INTO `order`(`CustomerName`, `CustomerEmail`, `Basketarr`) VALUES (?, ?, ?)', 
+    [order.CustomerName, order.CustomerEmail, order.Basketarr]
 
   );
-  // order.CustomerName, order.CustomerEmail, 'test'
 
   let message = 'Error in creating order';
 
@@ -31,7 +27,6 @@ async function create(order){
 
 
 module.exports = {
- 
   create
  
 }

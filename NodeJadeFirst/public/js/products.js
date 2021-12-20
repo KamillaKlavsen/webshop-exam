@@ -44,12 +44,18 @@ const updatelist = (productarr) => {
                 //adds a string to the existing string
                 //When fetching from the database, the letters are case sensitive
                 str += `<div class="product">
-                    <div>
+                <a href="/productdetail.html#${product.ProductId}">
+                    
+                <div >
                     <img src="images/${product.ImageFile}" class="product-img">
+                </div>
+                    <div class="product-desc">
                     <h3 class="product-brand">${product.BrandName}</h3> <br> 
                     <h4 class="product-name">${product.Name}</h4> <br> 
                     <p class="product-price">${product.Price}</p>
-                   </div>
+                    </div>
+                   
+                   </a>
                    </div>`
             });
             product.innerHTML = str;

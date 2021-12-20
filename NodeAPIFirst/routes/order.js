@@ -3,11 +3,7 @@ const router = express.Router();
 const order = require('../services/order');
 
 
-
-
-
-
-//POST //modtager ordre fra kunden (nanv, email, basketarr)
+//POST //modtager ordre fra kunden (navn, email, basketarr)
 router.post('/', async function(req, res, next) {
   try {
     res.json(await order.create(req.body));
