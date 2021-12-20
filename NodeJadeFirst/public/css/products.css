@@ -1,5 +1,28 @@
 @import 'global.css';
 
+:root{
+    --primary-color: #afa2ff;
+    --seconday-color: #e3d7ff;
+    --tertiary-color: #7a89c2;
+    --text-color: #3A4046;
+    --text-color-white: #FFFFFF;
+
+    --heading: 24px 'Montserrat', sans-serif;
+    --sub-heading: 16px 'Lora', serif;
+    --text: 16px 'Mulish', sans-serif;
+}
+
+h1{
+ text-align: center;
+ padding-top: 40px;
+ font: var(--heading);
+ color: var(--text-color);
+}
+
+#content{
+    padding-top: 40px;
+}
+
 .product{
     display: flex;
     justify-content: center;
@@ -7,7 +30,7 @@
 
 #product{
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 1fr);
     grid-gap: 10px 3px;
 }
@@ -15,3 +38,7 @@
     width: 250px;
     margin: 0;
 } */
+
+.productpage-img{
+    width: 340px;
+}

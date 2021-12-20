@@ -15,39 +15,15 @@ const updatepage = (page) => {
 
 const updatelist = (productarr) => {
   let str = "";
-//   product_arr[0].Name
-//   console.log(product_arr[0].Name);
-
-//   for (let i = 0; i < 4; i++) {
-//     // productarr.forEach(product => {
-//     str += `<div class="product">
-//             <a href="/productdetail.html#${product_arr[i].ProductId}">
-//         <div>
-//             <img src="images/${product_arr[i].ImageFile}" class="product-img">
-//             <h3 class="product-brand">${product_arr[i].BrandName}</h3> 
-//             <h4 class="product-name">${product_arr[i].Name}</h4> 
-//            <p class="product-price">${product_arr[i].Price}</p>
-
-          
-//            </div>
-//         </a>
-
-//            </div>
-           
-//            `;
-//     console.log(product_arr[i].Name);
-//   }
-//   product.innerHTML = str;
-// };
-
-            productarr.forEach(product => {
+           productarr.forEach(product => {
                 //adds a string to the existing string
                 //When fetching from the database, the letters are case sensitive
                 str += `<div class="product">
+                
                 <a href="/productdetail.html#${product.ProductId}">
                     
                 <div >
-                    <img src="images/${product.ImageFile}" class="product-img">
+                    <img src="images/${product.ImageFile}" class="productpage-img">
                 </div>
                     <div class="product-desc">
                     <h3 class="product-brand">${product.BrandName}</h3> <br> 

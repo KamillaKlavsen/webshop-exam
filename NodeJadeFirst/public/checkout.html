@@ -10,11 +10,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Check ud</title>
     <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/checkout.css">
 </head>
 
 <body>
-
+    <nav class="navbar"></nav>
     <table id="checkout-cart" class="shopping-cart">
+        
+        <form class="form" action="post" name="order">
+            <input type="text" name="CustomerName" placeholder="Name" required>
+            <input type="email" name="CustomerEmail" placeholder="Email" required>
+            <button class="pay-btn">Betal</button>
+        </form>
+    
+        
         <!-- <thead>
             <tr>
                 <th scope="col">Item</th>
@@ -26,17 +36,13 @@
 
         </tbody>
     </table>
-    <form action="post" name="order">
-        <input type="text" name="CustomerName" placeholder="Name" required>
-        <input type="email" name="CustomerEmail" placeholder="Email" required>
-        <button class="pay-btn">Betal</button>
-    </form>
-    
+   
 
         <!-- <p><input type="submit" id="submit-order" value="Submit" class="btn" /></p> -->
 
     </form>
     <script src="js/checkout.js"></script>
+    <script src="js/nav.js"></script>
 </body>
 
 </html>

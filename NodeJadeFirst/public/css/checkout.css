@@ -1,0 +1,37 @@
+@import 'basket.css';
+
+:root{
+    --primary-color: #afa2ff;
+    --seconday-color: #e3d7ff;
+    --tertiary-color: #7a89c2;
+    --text-color: #3A4046;
+    --text-color-white: #FFFFFF;
+
+    --heading: 24px 'Montserrat', sans-serif;
+    --sub-heading: 16px 'Lora', serif;
+    --text: 16px 'Mulish', sans-serif;
+} 
+
+  .pay-btn{
+    background-color: var(--tertiary-color);
+    padding: 5px;
+    border-radius: 7px;
+    font: var(--sub-heading);
+    margin: 10px;
+    border: none;
+  }
+
+  .shop-btn:hover, .checkout-btn:hover{
+    opacity: .5;
+  }
+
+  .shop-btn{
+    margin-right: 10px;
+    color: var(--text-color-white);
+    background-color: var(--tertiary-color);
+  }
+
+  .checkout-btn{
+    color: var(--text-color);
+    background-color: var(--seconday-color);
+  }

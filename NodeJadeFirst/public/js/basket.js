@@ -2,12 +2,17 @@
 let insertProduct = (product, quantity) => {
   document.querySelector("table.shopping-cart > tbody").innerHTML += `
   <tr>
-  <td>${product.Name}</td>
-  <td>${product.Price}</td>
-  <td><img src="/images/${product.ImageFile}" class="product-img"></td>
-  <td>${quantity}</td>
+  <td><img src="/images/${product.ImageFile}" id="productbasket-img"></td>
+  <td><div id="desc-box">
+  <p class="product-brand">${product.BrandName}</p>
+  <p class="product-name">${product.Name}</p>
+  </div></td>
+  <td class="product-qty">Antal: ${quantity}</td>
+  <td class="product-price">${product.Price}</td>
   
-  <td>I alt: ${quantity*product.Price}</td>`;
+  <td>I alt: ${quantity*product.Price}</td>
+  
+ `;
 };
 {
     /*

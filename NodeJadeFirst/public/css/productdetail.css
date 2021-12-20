@@ -41,4 +41,18 @@ margin-top: 60px;
    font-size: 47px; 
 }
 
-/*quantity and size*/
+
+.submit-btn{
+        border: none;
+        color: var(--text-color);
+        background-color: var(--seconday-color);
+        padding: 15px;
+    border-radius: 7px;
+    font: var(--sub-heading);
+    margin: 10px;
+      
+}
+
+.submit-btn:hover{
+    opacity: .5;
+}

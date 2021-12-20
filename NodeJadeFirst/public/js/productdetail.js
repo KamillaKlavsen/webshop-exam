@@ -17,7 +17,10 @@ let updatepage = (id) => {
                 <p class="product-price">${json.data.Price}</p> <br>
                 <p class="product-desc">${json.data.Description}</p>
             </div>
-        </div>         
+        </div>   
+        
+        
+    </div>
         `;
             console.log(json.data);
             document.forms.addtobasket.productId.value = json.data.ProductId;
