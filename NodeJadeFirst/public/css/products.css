@@ -40,5 +40,30 @@ h1{
 } */
 
 .productpage-img{
-    width: 340px;
+    width: 100%;
+}
+
+/*MQ - Phone*/
+
+@media (min-width: 300px) and (max-width: 455px){
+
+#product{
+    display: grid;
+    grid-template-columns: 1fr;
+   }
+}
+
+@media (min-width: 455px) and (max-width: 634px){
+
+    #product{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    } 
+}
+@media (min-width: 634px) and (max-width: 768px){
+
+    #product{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    } 
 }

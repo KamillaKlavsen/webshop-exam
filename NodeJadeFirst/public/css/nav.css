@@ -97,3 +97,30 @@
 .link:hover{
     opacity: 1;
 }
+
+/*MQ - Phone*/
+
+@media (min-width: 300px) and (max-width: 768px){
+    .navbar{
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #f5f5f5;
+        z-index: 9;
+    }
+    
+    .nav{
+        padding: 10px 10vw;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .nav, .brand-logo, .nav-items, .search, .search-box, .search-btn {
+        display: none;
+    
+    }
+    
+   
+
+}

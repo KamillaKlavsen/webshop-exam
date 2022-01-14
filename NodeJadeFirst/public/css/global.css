@@ -73,3 +73,9 @@ a:link{
 .product-link{
     color: var(--text-color);
 }
+
+/*MQ - Phone*/
+
+@media (min-width: 300px) and (max-width: 768px){
+
+}
