@@ -1,28 +1,42 @@
 // i parametrene skrives de ting, som skal med fra productdetail og i kurven, som her produktet og quantity
 let insertProduct = (product, quantity) => {
-  document.querySelector("table.shopping-cart > tbody").innerHTML += `
+  document.querySelector("table.shopping-cart > thead").innerHTML += `
   <tr>
-  <td><img src="/images/${product.ImageFile}" id="productbasket-img"></td>
-  <td><div id="desc-box">
-  <p class="product-brand">${product.BrandName}</p>
-  <p class="product-name">${product.Name}</p>
-  </div></td>
-  <td class="product-qty">Antal: ${quantity}</td>
-  <td class="product-price">${product.Price}</td>
-  
-  <td>I alt: ${quantity*product.Price}</td>
+<td><img src="/images/${product.ImageFile}" id="productbasket-img"></td>
+<td><div id="desc-box">
+<p class="product-brand">${product.BrandName}</p>
+<p class="product-name">${product.Name}</p>
+</div></td>
+<td class="product-qty">Antal: ${quantity}</td>
+<td class="product-price">${product.Price}</td>
+
+<td>I alt: ${quantity*product.Price}</td>
+</tr>
   
  `;
 };
-{
-    /*
-    <td>${quantity}</td>
-<td>I alt: ${quantity * product.Price}</td>
-<td><div>
+/* <tr>
+<td><img src="/images/${product.ImageFile}" id="productbasket-img"></td>
+<td><div id="desc-box">
+<p class="product-brand">${product.BrandName}</p>
+<p class="product-name">${product.Name}</p>
+</div></td>
+<td class="product-qty">Antal: ${quantity}</td>
+<td class="product-price">${product.Price}</td>
 
-    <td>${product.Name}</td>
-<td>${product.Price}</td>
-<td><img src="/images/${product.ImageFile}" class="product-img"></td> */}
+<td>I alt: ${quantity*product.Price}</td> */
+
+/* <img src="/images/${product.ImageFile}" id="productbasket-img">
+  <div id="desc-box">
+  <p class="product-brand">${product.BrandName}</p>
+  <p class="product-name">${product.Name}</p>
+  </div>
+  <div id="numbers-box">
+  <p class="product-qty">Antal: ${quantity}</p>
+  <p class="product-price">${product.Price}</p>
+  </div>
+  <p>I alt: ${quantity*product.Price}</p>} */
+
 
 //henter produkterne ind
 let getProducts = () => {
