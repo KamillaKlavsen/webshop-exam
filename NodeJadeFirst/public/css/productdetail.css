@@ -56,3 +56,43 @@ margin-top: 60px;
 .submit-btn:hover{
     opacity: .5;
 }
+
+/*MQ - Phone*/
+
+@media (min-width: 300px) and (max-width: 768px){
+    .product-detail{
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 60px;
+        }
+        
+        .productdetail-img{
+            width: 100%;
+        
+        }
+        
+        .desc-box{
+            margin: 30px;
+        }
+        
+        .product-brand, .product-price{
+            font-size: 10vw;
+        }
+        .product-name{
+            font-size: 6vw;
+        }
+        
+       
+        
+        
+        .submit-btn{
+                border: none;
+                color: var(--text-color);
+                background-color: var(--seconday-color);
+                padding: 15px;
+            border-radius: 7px;
+            font: var(--sub-heading);
+            margin: 10px;
+              
+        }
+}
